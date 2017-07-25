@@ -342,15 +342,15 @@
                                 for (var i = 0; i < element.participants.length;i++)
                                     people += '<div class="item"><img class="ui avatar image" src="' + element.participants[i].avatar + '">' +
                                         '<div class="content"><a class="header" href="'+ element.participants[i].url+'">' + element.participants[i].name + '</a></div></div>'
-
-                                    current_day.children[1].children[current_day.children[1].children.length - 1].addEventListener
+                                current_day.children[1].children[current_day.children[1].children.length - 1].addEventListener
                                         ('click', function () {
-                                        $('#header').text(element.event);
-                                        $('#date').text(element.date);
-                                        $('#description').text(element.description);
-                                        $('#participants').html(people);
-                                        $('.ui.modal').modal('show');
-                                    });
+                                            $('#header').text(element.event);
+                                            $('#date').text(element.date);
+                                            $('#description').text(element.description);
+                                            $('#participants').html(people);
+                                            $('.ui.modal').modal('show');
+                                        });
+
                             }
                         }
                         this.events.forEach(checker);
