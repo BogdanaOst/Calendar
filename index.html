@@ -336,15 +336,14 @@
                         {
                             if (element.date == atribute)
                             {
-                                current_day.children[1].innerHTML += '<p class="for-popup ui mini green empty circular label" data-variation="tiny" data-content="' + element.event + '">';
+                                current_day.children[1].insertAdjacentHTML('beforeend', '<p class="for-popup ui mini green empty circular label" data-variation="tiny" data-content="' + element.event + '">');
                                 var people = '';
                                 if (undefined !== element.participants)
                                 for (var i = 0; i < element.participants.length;i++)
                                     people += '<div class="item"><img class="ui avatar image" src="' + element.participants[i].avatar + '">' +
                                         '<div class="content"><a class="header" href="'+ element.participants[i].url+'">' + element.participants[i].name + '</a></div></div>'
 
-                                for (var j = 0; j < current_day.children[1].children.length; j++) {
-                                    current_day.children[1].children[j].addEventListener
+                                    current_day.children[1].children[current_day.children[1].children.length - 1].addEventListener
                                         ('click', function () {
                                         $('#header').text(element.event);
                                         $('#date').text(element.date);
@@ -352,7 +351,6 @@
                                         $('#participants').html(people);
                                         $('.ui.modal').modal('show');
                                     });
-                                }
                             }
                         }
                         this.events.forEach(checker);
